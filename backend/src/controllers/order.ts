@@ -11,8 +11,7 @@ import BadRequestError from '../errors/bad-request-error';
  */
 const createOrder = (req: Request, res: Response, next: NextFunction) => {
   try {
-    // Логика создания заказа
-    const { total } = req.body;
+    const { payment, email, phone, address, total, items } = req.body;
     // Генерация случайного UUID для заказа.
     const orderId = faker.string.uuid();
 
