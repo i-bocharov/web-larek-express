@@ -1,10 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import path from 'path';
 import productRouter from './routes/product';
 
 const { PORT = 3000 } = process.env;
 
 const app = express();
+
+// Подключаем middleware для раздачи статических файлов из папки 'public'
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Подключаем middleware для парсинга тел запросов
 // Парсер для JSON (Content-Type: application/json)
