@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import path from 'path';
 import productRouter from './routes/product';
+import orderRouter from './routes/order';
 
 const { PORT = 3000 } = process.env;
 
@@ -20,7 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 mongoose.connect('mongodb://127.0.0.1:27017/weblarek');
 
 // Импортируем и подключаем роуты
-app.use('/', productRouter);
+app.use('/product', productRouter);
+app.use('/order', orderRouter);
 
 // Запускаем сервер
 app.listen(PORT, () => {

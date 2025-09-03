@@ -60,7 +60,7 @@ export const createProduct = async (
 
     // Если MongoDB вернула ошибку дубликата...
     if (error instanceof Error && error.message.includes('E11000')) {
-      // ... создаем ошибку 400 и передаем ее в обработчик ошибок
+      // ... создаем ошибку 409 и передаем ее в обработчик ошибок
       return next(new ConflictError('Товар с таким названием уже существует'));
     }
 
