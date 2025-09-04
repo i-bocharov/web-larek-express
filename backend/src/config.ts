@@ -58,7 +58,7 @@ const config: IConfig = {
   // Настройки токенов аутентификации
   auth: {
     refreshTokenExpiry: process.env.AUTH_REFRESH_TOKEN_EXPIRY || '7d',
-    accessTokenExpiry: process.env.AUTH_ACCESS_TOKEN_EXPIRY || '15m',
+    accessTokenExpiry: process.env.AUTH_ACCESS_TOKEN_EXPIRY || '1m',
   },
 };
 
