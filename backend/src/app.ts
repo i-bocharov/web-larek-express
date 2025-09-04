@@ -1,9 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import path from 'path';
+import 'dotenv/config';
+import config from './config';
 import mainRouter from './routes';
 
-const { PORT = 3000 } = process.env;
+const PORT = config.port;
 
 const app = express();
 
@@ -17,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Подключаемся к серверу MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/weblarek');
+mongoose.connect(config.dbAddress);
 
 // Подключаем главный роутер ко всему приложению
 app.use(mainRouter);
