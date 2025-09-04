@@ -1,7 +1,7 @@
+import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
 import path from 'path';
-import 'dotenv/config';
 import config from './config';
 import mainRouter from './routes';
 
