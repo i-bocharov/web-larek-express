@@ -2,8 +2,10 @@ import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
 import path from 'path';
+import { errors as celebrateErrors } from 'celebrate';
 import config from './config';
 import mainRouter from './routes';
+import errorHandler from './middlewares/error-handler';
 
 const PORT = config.port;
 
@@ -23,6 +25,12 @@ mongoose.connect(config.dbAddress);
 
 // Подключаем главный роутер ко всему приложению
 app.use(mainRouter);
+
+// Обработчик ошибок валидации celebrate
+app.use(celebrateErrors());
+
+// Централизованный обработчик ошибок
+app.use(errorHandler);
 
 // Запускаем сервер
 app.listen(PORT, () => {
