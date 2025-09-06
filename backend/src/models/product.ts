@@ -1,11 +1,13 @@
 import mongoose from 'mongoose';
 
+interface IImage {
+  fileName: string;
+  originalName: string;
+}
+
 interface IProduct {
   title: string;
-  image: {
-    fileName: string;
-    originalName: string;
-  };
+  image: IImage;
   category: string;
   description?: string;
   price?: number | null;
