@@ -1,3 +1,4 @@
+import cors from 'cors';
 import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
@@ -11,6 +12,8 @@ import errorHandler from './middlewares/error-handler';
 const PORT = config.port;
 
 const app = express();
+
+app.use(cors());
 
 // Подключаем middleware для раздачи статических файлов из папки 'public'
 app.use(express.static(path.join(__dirname, 'public')));

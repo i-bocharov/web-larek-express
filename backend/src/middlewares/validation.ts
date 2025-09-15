@@ -7,6 +7,7 @@ const createOrderValidator = celebrate({
     email: Joi.string().required().email(),
     phone: Joi.string()
       .required()
+      .replace(/[\s()-]/g, '')
       .pattern(/^\+\d{10,15}$/),
     address: Joi.string().required().min(1),
     total: Joi.number().required().positive(),
